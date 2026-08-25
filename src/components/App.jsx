@@ -1,4 +1,7 @@
+import data from "../data";
+import Answer from "./Answer";
 import Header from "./Header";
+import Question from "./Question";
 
 export default function App() {
   return (
@@ -6,24 +9,20 @@ export default function App() {
       <div className="min-h-full w-3xl bg-neutral-200 ">
         <Header />
         <main className="px-4 py-6 ">
-          <h2 className="pb-4">Question:</h2>
+          <Question />
           <form className="flex flex-col">
             <ul>
               <li className="flex items-center gap-2">
-                <input type="radio" />
-                <label htmlFor="">Answer 1</label>
+                <Answer />
               </li>
               <li className="flex items-center gap-2">
-                <input type="radio" />
-                <label htmlFor="">Answer 2</label>
+                <Answer />
               </li>
               <li className="flex items-center gap-2">
-                <input type="radio" />
-                <label htmlFor="">Answer 3</label>
+                <Answer />
               </li>
               <li className="flex items-center gap-2">
-                <input type="radio" />
-                <label htmlFor="">Answer 4</label>
+                <Answer />
               </li>
             </ul>
           </form>

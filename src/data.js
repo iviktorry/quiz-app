@@ -1,7 +1,8 @@
 const questions = [
   {
     id: 1,
-    question: "Which Breathing Style is Tanjiro Kamado initially taught by Sakonji Urokodaki?",
+    question:
+      "Which Breathing Style is Tanjiro Kamado initially taught by Sakonji Urokodaki?",
     answers: [
       { answer1: "Flame Breathing", correct: false },
       { answer2: "Water Breathing", correct: true },
@@ -31,7 +32,8 @@ const questions = [
   },
   {
     id: 4,
-    question: "Which form of Thunder Breathing is Zenitsu Agatsuma able to master at first?",
+    question:
+      "Which form of Thunder Breathing is Zenitsu Agatsuma able to master at first?",
     answers: [
       { answer1: "Second Form", correct: false },
       { answer2: "Third Form", correct: false },
@@ -41,7 +43,8 @@ const questions = [
   },
   {
     id: 5,
-    question: "What is the name of the main antagonist and first demon in the series?",
+    question:
+      "What is the name of the main antagonist and first demon in the series?",
     answers: [
       { answer1: "Muzan Kibutsuji", correct: true },
       { answer2: "Akaza", correct: false },
@@ -51,7 +54,8 @@ const questions = [
   },
   {
     id: 6,
-    question: "What object does Nezuko wear over her mouth to prevent her from biting humans?",
+    question:
+      "What object does Nezuko wear over her mouth to prevent her from biting humans?",
     answers: [
       { answer1: "A wooden guard", correct: false },
       { answer2: "A bamboo muzzle", correct: true },
