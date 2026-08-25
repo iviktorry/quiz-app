@@ -1,8 +1,10 @@
+import Header from "./Header";
+
 export default function App() {
   return (
     <div className="min-h-lvh ">
       <div className="min-h-full bg-neutral-200 px-4 py-6">
-        <h1>Quiz time!</h1>
+        <Header />
         <h2>Question:</h2>
         <form className="flex flex-col">
           <label htmlFor="">answer 1</label>
