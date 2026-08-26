@@ -11,7 +11,6 @@ export default function App() {
         <Header />
         <main className="px-4 py-6 ">
           <Main />
-          
         </main>
       </div>
     </div>
