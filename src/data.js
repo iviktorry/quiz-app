@@ -4,7 +4,7 @@ const questions = [
     question:
       "Which Breathing Style is Tanjiro Kamado initially taught by Sakonji Urokodaki?",
     answers: [
-      { answer: "Flame Breathing",  correct: false },
+      { answer: "Flame Breathing", correct: false },
       { answer: "Water Breathing", correct: true },
       { answer: "Thunder Breathing", correct: false },
       { answer: "Beast Breathing", correct: false },
