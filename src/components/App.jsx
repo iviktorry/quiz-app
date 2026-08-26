@@ -24,6 +24,9 @@ export default function App() {
         `answer: ${questionsArray[questionId - 1].answers[selectedEl].answer}`,
       );
 
+      if (questionsArray[questionId] === questionsArray[questionsArray.length])
+        return;
+
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         console.log("correct");
         setPoints((prev) => prev + 1);
@@ -41,15 +44,18 @@ export default function App() {
       <div className="min-h-full w-3xl bg-neutral-200 ">
         <Header />
         <main className="px-4 py-6 ">
-          <Main
-            handleForm={handleForm}
-            questionId={questionId}
-            isAnswered={isAnswered}
-            selectedAnswer={selectedAnswer}
-            points={points}
-          />
-          
-          <FinalScreen points={points} />
+          {questionsArray[questionId] ===
+          questionsArray[questionsArray.length] ? (
+            <FinalScreen points={points} />
+          ) : (
+            <Main
+              handleForm={handleForm}
+              questionId={questionId}
+              isAnswered={isAnswered}
+              selectedAnswer={selectedAnswer}
+              points={points}
+            />
+          )}
         </main>
       </div>
     </div>
