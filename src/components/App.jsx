@@ -10,22 +10,7 @@ export default function App() {
         <Header />
         <main className="px-4 py-6 ">
           <Question />
-          <form className="flex flex-col">
-            <ul>
-              <li className="flex items-center gap-2">
-                <Answer />
-              </li>
-              <li className="flex items-center gap-2">
-                <Answer />
-              </li>
-              <li className="flex items-center gap-2">
-                <Answer />
-              </li>
-              <li className="flex items-center gap-2">
-                <Answer />
-              </li>
-            </ul>
-          </form>
+         
         </main>
       </div>
     </div>
