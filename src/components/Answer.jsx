@@ -1,8 +1,10 @@
-export default function Answer() {
+export default function Answer({ answer }) {
   return (
     <>
-      <input type="radio" />
-      <label htmlFor="">Answer 1</label>
+      <label className="flex gap-2">
+        <input type="radio" />
+        {answer}
+      </label>
     </>
   );
 }

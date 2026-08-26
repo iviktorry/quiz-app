@@ -9,8 +9,20 @@ export default function App() {
       <div className="min-h-full w-3xl bg-neutral-200 ">
         <Header />
         <main className="px-4 py-6 ">
-          <Question />
-         
+          {data.map((item) => (
+            <div key={item.id}>
+              <Question text={item.question} />
+              <form className="">
+                <ul className="">
+                  {item.answers.map((item, index) => (
+                    <li key={index}>
+                      <Answer answer={item.answer} correct={item.correct} />
+                    </li>
+                  ))}
+                </ul>
+              </form>
+            </div>
+          ))}
         </main>
       </div>
     </div>
