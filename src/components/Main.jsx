@@ -5,6 +5,7 @@ export default function Main() {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [points, setPoints] = useState(0);
 
   function handleForm(event) {
     event.preventDefault();
@@ -22,6 +23,7 @@ export default function Main() {
 
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         console.log("correct");
+        setPoints((prev) => prev + 1);
       }
 
       setIsAnswered(true);
@@ -37,7 +39,7 @@ export default function Main() {
         <p>
           Question {questionId}/{questionsArray.length}
         </p>
-        <p className="pb-4">Points: </p>
+        <p className="pb-4">Points: {points}</p>
 
         <h2 className="">{questionsArray[questionId - 1].question}</h2>
 
