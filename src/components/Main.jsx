@@ -4,7 +4,7 @@ import questionsArray from "../data";
 export default function Main() {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [buttonText, setButtonText] = useState("submit");
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   function handleForm(event) {
     event.preventDefault();
@@ -13,23 +13,20 @@ export default function Main() {
     if (data.answer === undefined) return;
 
     if (!isAnswered) {
-      const selectedAnswer = Number(data.answer);
+      const selectedEl = Number(data.answer);
+      setSelectedAnswer(selectedEl);
 
       console.log(
-        `index: ${selectedAnswer} answer: ${questionsArray[questionId - 1].answers[selectedAnswer].answer}`,
+        `answer: ${questionsArray[questionId - 1].answers[selectedEl].answer}`,
       );
 
-      if (
-        questionsArray[questionId - 1].answers[selectedAnswer].correct == true
-      ) {
-        console.log("win!!!!!!");
+      if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
+        console.log("correct");
       }
 
       setIsAnswered(true);
-      setButtonText("next");
     } else {
       setIsAnswered(false);
-      setButtonText("submit");
       setQuestionId((prev) => prev + 1);
     }
   }
@@ -37,22 +34,42 @@ export default function Main() {
   return (
     <div>
       <form onSubmit={handleForm} key={questionId}>
-        <p className="pb-4">Question {questionId}</p>
+        <p>
+          Question {questionId}/{questionsArray.length}
+        </p>
+        <p className="pb-4">Points: </p>
+
         <h2 className="">{questionsArray[questionId - 1].question}</h2>
-        <div className="flex flex-col">
-          {questionsArray[questionId - 1].answers.map((item, index) => (
-            <label key={index} className="flex gap-2">
-              <input type="radio" name="answer" value={index} />
-              {item.answer} {index}
-            </label>
-          ))}
+
+        <div className="flex flex-col gap-1">
+          {questionsArray[questionId - 1].answers.map((item, index) => {
+            let style = "";
+
+            if (isAnswered) {
+              if (item.correct) {
+                style = "ring ring-green-400";
+              } else if (index === selectedAnswer) {
+                style = "ring ring-red-400";
+              }
+            }
+
+            return (
+              <label
+                key={index}
+                className={`flex gap-2 w-60 px-2 rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""}`}
+              >
+                <input type="radio" name="answer" value={index} />
+                {item.answer} ({index})
+              </label>
+            );
+          })}
         </div>
 
         <button
           type="submit"
           className="ring ring-neutral-400 px-4 rounded-sm mt-4 hover:bg-neutral-100"
         >
-          {buttonText}
+          {isAnswered ? "next" : "submit"}
         </button>
       </form>
     </div>
