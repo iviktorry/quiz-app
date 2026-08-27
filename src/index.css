@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Blood Crow Condensed";
+  src: url("./assets/fonts/bloodcrowc.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @theme {
+  --font-custom: "Blood Crow Condensed";
+} */
