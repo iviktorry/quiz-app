@@ -3,20 +3,20 @@ import bgImg from "../../assets/images/welcome-bg.jpg";
 export default function WelcomeScreen() {
   return (
     <div
-      className="h-full w-full flex bg-top bg-cover items-end pb-6 font-custom "
+      className="h-full w-full flex bg-top bg-cover items-end pb-6 font-custom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div className="mx-auto w-auto text-center px-1 text-3xl text-neutral-950 text-shadow-lg text-shadow-neutral-200 sm:w-auto lg:text-4xl">
+      <div className="mx-auto w-auto text-center px-1 text-4xl text-neutral-950 text-shadow-lg text-shadow-neutral-200 sm:w-auto lg:text-4xl">
         <div className="mb-2 flex flex-col items-center">
           <h1 className="text-5xl mb-4 lg:text-6xl">Welcome to the quiz!</h1>
           <p>Are you ready to start?</p>
         </div>
 
         <div className="flex justify-around">
-          <button className="py-1 w-20 rounded-lg text-shadow-lg text-shadow-neutral-200 hover:text-shadow-green-600">
+          <button className="py-1 w-20 rounded-lg text-shadow-lg transition-all text-shadow-green-400 lg:text-shadow-neutral-200 hover:text-shadow-green-600">
             Yes
           </button>
-          <button className="py-1 w-18 rounded-lg text-shadow-lg text-shadow-neutral-200 hover:text-shadow-red-600">
+          <button className="py-1 w-18 rounded-lg text-shadow-lg transition-all text-shadow-red-400 lg:text-shadow-neutral-200 hover:text-shadow-red-600">
             No
           </button>
         </div>
