@@ -1,4 +1,5 @@
 import bgImg from "../../assets/images/welcome-bg.jpg";
+import WelcomeButton from "./WelcomeButton";
 
 export default function WelcomeScreen() {
   return (
@@ -13,12 +14,16 @@ export default function WelcomeScreen() {
         </div>
 
         <div className="flex justify-around">
-          <button className="py-1 w-20 rounded-lg text-shadow-lg transition-all text-shadow-green-400 lg:text-shadow-neutral-200 hover:text-shadow-green-600">
-            Yes
-          </button>
-          <button className="py-1 w-18 rounded-lg text-shadow-lg transition-all text-shadow-red-400 lg:text-shadow-neutral-200 hover:text-shadow-red-600">
-            No
-          </button>
+          <WelcomeButton
+            text="Yes"
+            shadow="text-shadow-green-400"
+            hover="hover:text-shadow-green-500"
+          />
+          <WelcomeButton
+            text="No"
+            shadow="text-shadow-red-400"
+            hover="hover:text-shadow-red-500"
+          />
         </div>
       </div>
     </div>
