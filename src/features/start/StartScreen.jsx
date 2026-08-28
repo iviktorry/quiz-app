@@ -1,7 +1,7 @@
 import { useState } from "react";
 import bgImg from "../../assets/images/welcome-bg.jpg";
 import StartView from "./StartView";
-import StartButton from "./StartButton";
+import StartButton from "./components/StartButton";
 
 export default function StartScreen() {
   const [readyState, setReadyState] = useState("readyScreen");
