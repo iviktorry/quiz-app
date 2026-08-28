@@ -1,4 +1,4 @@
-import questionsArray from "../data";
+import questionsArray from "../../data";
 
 export default function Main({
   handleForm,

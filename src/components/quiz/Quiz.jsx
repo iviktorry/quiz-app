@@ -1,6 +1,6 @@
 import questionsArray from "../../data";
-import FinalScreen from "./FinalScreen";
-import Main from "../Main";
+import FinalScreen from "../FinalScreen";
+import Main from "../QuizStrusture";
 import { useState } from "react";
 
 export default function Quiz() {

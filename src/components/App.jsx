@@ -1,6 +1,6 @@
 // import Header from "./Header";
 
-import WelcomeScreen from "./screens/WelcomeScreen";
+import WelcomeScreen from "./welcome/WelcomeScreen";
 
 export default function App() {
   return (

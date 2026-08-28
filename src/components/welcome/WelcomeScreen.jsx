@@ -1,6 +1,6 @@
 import { useState } from "react";
 import bgImg from "../../assets/images/welcome-bg.jpg";
-import WelcomeScreenReady from "./WelcomeScreenContent";
+import WelcomeScreenReady from "./WelcomeStructure";
 import WelcomeButton from "./WelcomeButton";
 
 export default function WelcomeScreen() {
