@@ -1,5 +1,5 @@
 import questionsArray from "../../data";
-import ResultsScreen from "../results/ResultsScreen";
+import ResultsScreen from "../result/ResultsScreen";
 import QuizScreen from "./QuizScreen";
 import { useState } from "react";
 
