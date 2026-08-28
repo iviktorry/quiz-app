@@ -1,6 +1,6 @@
 import questionsArray from "../../data";
-import FinalScreen from "../FinalScreen";
-import Main from "../QuizStrusture";
+import ResultsScreen from "../results/ResultsScreen";
+import QuizScreen from "./QuizScreen";
 import { useState } from "react";
 
 export default function Quiz() {
@@ -41,9 +41,9 @@ export default function Quiz() {
   return (
     <main className="px-4 py-6 ">
       {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
-        <FinalScreen points={points} />
+        <ResultsScreen points={points} />
       ) : (
-        <Main
+        <QuizScreen
           handleForm={handleForm}
           questionId={questionId}
           isAnswered={isAnswered}

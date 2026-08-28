@@ -1,6 +1,6 @@
 import questionsArray from "../../data";
 
-export default function FinalScreen({ points }) {
+export default function ResultsSCreen({ points }) {
   let message;
 
   if (points < questionsArray.length / 5) {
