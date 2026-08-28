@@ -5,18 +5,15 @@ import StartButton from "./components/StartButton";
 
 export default function StartScreen() {
   const [readyState, setReadyState] = useState("ready");
+  const [isVisible, setIsVisible] = useState(true);
 
-  function handleButtonReady() {
-    setReadyState("ready");
-  }
+  function changeStateWithFade(newState) {
+    setIsVisible(false);
 
-  function handleButtonSure() {
-    setReadyState("sure");
-    console.log("im sure");
-  }
-
-  function handleButtonNotReady() {
-    setReadyState("notReady");
+    setTimeout(() => {
+      setReadyState(newState);
+      setIsVisible(true);
+    }, 500);
   }
 
   const readyStates = {
@@ -26,13 +23,13 @@ export default function StartScreen() {
           text="Yes"
           shadow="text-shadow-green-400"
           hover="hover:text-shadow-green-500"
-          onClick={handleButtonSure}
+          onClick={() => changeStateWithFade("sure")}
         />
         <StartButton
           text="No"
           shadow="text-shadow-red-400"
           hover="hover:text-shadow-red-500"
-          onClick={handleButtonNotReady}
+          onClick={() => changeStateWithFade("notReady")}
         />
       </StartView>
     ),
@@ -43,13 +40,13 @@ export default function StartScreen() {
           text="Yes"
           shadow="text-shadow-green-400"
           hover="hover:text-shadow-green-500"
-          onClick={handleButtonReady} // add next step
+          onClick={() => changeStateWithFade("ready")} // add next step
         />
         <StartButton
           text="No"
           shadow="text-shadow-red-400"
           hover="hover:text-shadow-red-500"
-          onClick={handleButtonReady}
+          onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
     ),
@@ -57,10 +54,10 @@ export default function StartScreen() {
     notReady: (
       <StartView label="See you next time">
         <StartButton
-          text="Try again"
+          text="Get back"
           shadow="text-shadow-green-400"
           hover="hover:text-shadow-green-500"
-          onClick={handleButtonReady}
+          onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
     ),
@@ -71,7 +68,11 @@ export default function StartScreen() {
       className="h-full w-full flex bg-top bg-cover items-end pb-6 font-custom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      {readyStates[readyState]}
+      <div
+        className={`w-full transition-opacity duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+      >
+        {readyStates[readyState]}
+      </div>
     </div>
   );
 }
