@@ -1,9 +1,8 @@
 import questionsArray from "../../data";
-import ResultsScreen from "../result/ResultScreen";
 import QuizView from "./QuizView";
 import { useState } from "react";
 
-export default function QuizScreen() {
+export default function QuizScreen({ changeScreenWithFade }) {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -41,7 +40,7 @@ export default function QuizScreen() {
   return (
     <main className="px-4 py-6 ">
       {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
-        <ResultsScreen points={points} />
+        changeScreenWithFade("result")
       ) : (
         <QuizView
           handleForm={handleForm}
