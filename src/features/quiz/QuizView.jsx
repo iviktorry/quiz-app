@@ -8,8 +8,9 @@ export default function QuizView({
   points,
 }) {
   return (
-    <div className="px-4 py-6 h-full">
-      <form onSubmit={handleForm} key={questionId}>
+    //text-neutral-900 text-shadow-lg text-shadow-neutral-300
+    <div className="flex px-4 py-6 h-full text-neutral-300 text-shadow-lg text-shadow-neutral-500 lg:items-end lg:pb-20">
+      <form className="lg:w-1/2" onSubmit={handleForm} key={questionId}>
         <p>
           Question {questionId}/{questionsArray.length}
         </p>
@@ -17,25 +18,25 @@ export default function QuizView({
 
         <h2 className="">{questionsArray[questionId - 1].question}</h2>
 
-        <div className="flex flex-col gap-1">
+        <div className="grid max-w-fit gap-1 md:grid-cols-2">
           {questionsArray[questionId - 1].answers.map((item, index) => {
             let style = "";
 
             if (isAnswered) {
               if (item.correct) {
-                style = "ring ring-green-400";
+                style = "text-green-400";
               } else if (index === selectedAnswer) {
-                style = "ring ring-red-400";
+                style = "text-red-400";
               }
             }
 
             return (
               <label
                 key={index}
-                className={`flex gap-2 w-fit px-2 items-center rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""}`}
+                className={`flex items-center gap-2 px-2 rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""} hover:text-neutral-50`}
               >
                 <input type="radio" name="answer" value={index} />
-                {item.answer} ({index})
+                {item.answer}
               </label>
             );
           })}
@@ -43,7 +44,7 @@ export default function QuizView({
 
         <button
           type="submit"
-          className="ring ring-neutral-400 px-4 rounded-sm mt-4 hover:bg-neutral-100"
+          className="px-4 rounded-sm mt-4 text-shadow-lg text-shadow-neutral-600 hover:text-neutral-50"
         >
           {isAnswered ? "next" : "submit"}
         </button>

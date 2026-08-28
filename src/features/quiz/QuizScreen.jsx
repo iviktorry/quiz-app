@@ -1,6 +1,7 @@
 import questionsArray from "../../data";
 import QuizView from "./QuizView";
 import { useState } from "react";
+import bgImg from "../../assets/images/quiz-bg.jpg";
 
 export default function QuizScreen({ changeScreenWithFade }) {
   const [questionId, setQuestionId] = useState(1);
@@ -38,7 +39,7 @@ export default function QuizScreen({ changeScreenWithFade }) {
   }
 
   return (
-    <main className="h-full">
+    <main className="h-full bg-cover bg-bottom " style={{ backgroundImage: `url(${bgImg})` }}>
       {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
         changeScreenWithFade("result")
       ) : (
