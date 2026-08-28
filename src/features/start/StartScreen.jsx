@@ -3,7 +3,7 @@ import bgImg from "../../assets/images/welcome-bg.jpg";
 import StartView from "./StartView";
 import StartButton from "./components/StartButton";
 
-export default function StartScreen() {
+export default function StartScreen({ changeScreenWithFade }) {
   const [readyState, setReadyState] = useState("ready");
   const [isVisible, setIsVisible] = useState(true);
 
@@ -40,7 +40,7 @@ export default function StartScreen() {
           text="Yes"
           shadow="text-shadow-green-400"
           hover="hover:text-shadow-green-500"
-          onClick={() => changeStateWithFade("ready")} // add next step
+          onClick={() => changeScreenWithFade("quiz")} // next step
         />
         <StartButton
           text="No"
