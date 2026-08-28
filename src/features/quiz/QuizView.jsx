@@ -8,7 +8,7 @@ export default function QuizView({
   points,
 }) {
   return (
-    <div className="flex px-4 py-20 items-end h-full text-neutral-300 text-shadow-lg text-shadow-neutral-500 lg:px-15">
+    <div className="flex px-4 py-20 items-end h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:px-15">
       <form className="lg:w-1/2" onSubmit={handleForm} key={questionId}>
         <p>
           Question {questionId}/{questionsArray.length}
@@ -19,20 +19,23 @@ export default function QuizView({
 
         <div className="grid max-w-fit gap-1 md:grid-cols-2">
           {questionsArray[questionId - 1].answers.map((item, index) => {
-            let style = "";
-
+            let style;
             if (isAnswered) {
               if (item.correct) {
-                style = "text-green-400";
-              } else if (index === selectedAnswer) {
-                style = "text-red-400";
+                style = "text-green-500";
+              } else if (index === Number(selectedAnswer)) {
+                style = "text-red-500";
               }
             }
+
+            const star = item.correct
+              ? "after:text-red-800 after:content-['*']"
+              : "";
 
             return (
               <label
                 key={index}
-                className={`flex items-center gap-2 px-2 rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""} hover:text-neutral-50`}
+                className={`flex items-center gap-2 px-2 rounded-sm hover:text-neutral-50 ${style} ${star}`}
               >
                 <input type="radio" name="answer" value={index} />
                 {item.answer}
