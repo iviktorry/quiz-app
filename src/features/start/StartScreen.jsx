@@ -22,8 +22,8 @@ export default function StartScreen({ changeScreenWithFade }) {
       <StartView label="Welcome to the quiz!" text="Are you ready to start?">
         <StartButton
           text="Yes"
-          shadow="text-shadow-green-400"
-          hover="hover:text-shadow-green-400"
+          shadow="text-shadow-lime-400"
+          hover="hover:text-shadow-lime-400"
           onClick={() => changeStateWithFade("sure")}
         />
         <StartButton
@@ -39,8 +39,8 @@ export default function StartScreen({ changeScreenWithFade }) {
       <StartView label="Are you sure???">
         <StartButton
           text="Yes"
-          shadow="text-shadow-green-400"
-          hover="hover:text-shadow-green-400"
+          shadow="text-shadow-lime-400"
+          hover="hover:text-shadow-lime-400"
           onClick={() => changeScreenWithFade("quiz")} // next step
         />
         <StartButton
@@ -56,8 +56,8 @@ export default function StartScreen({ changeScreenWithFade }) {
       <StartView label="See you next time">
         <StartButton
           text="Get back"
-          shadow="text-shadow-green-400"
-          hover="hover:text-shadow-green-500"
+          shadow="text-shadow-lime-400"
+          hover="hover:text-shadow-lime-500"
           onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
