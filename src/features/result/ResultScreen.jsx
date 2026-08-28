@@ -1,6 +1,6 @@
 import questionsArray from "../../data";
 
-export default function ResultSCreen({ points }) {
+export default function ResultSCreen({ points, changeScreenWithFade }) {
   let message;
 
   if (points < questionsArray.length / 5) {
@@ -22,12 +22,15 @@ export default function ResultSCreen({ points }) {
   }
 
   return (
-    <div className="bg-[] h-full">
+    <div className="bg-red-300 h-full">
       <h1>
         You earned {points} {points < 2 ? "points" : "point"} out of{" "}
         {questionsArray.length}!
       </h1>
       <p>{message}</p>
+      <button onClick={() => changeScreenWithFade("start")} className="">
+        Go to the start
+      </button>
     </div>
   );
 }

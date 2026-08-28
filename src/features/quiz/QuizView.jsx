@@ -8,8 +8,7 @@ export default function QuizView({
   points,
 }) {
   return (
-    //text-neutral-900 text-shadow-lg text-shadow-neutral-300
-    <div className="flex px-4 py-6 h-full text-neutral-300 text-shadow-lg text-shadow-neutral-500 lg:items-end lg:pb-20">
+    <div className="flex px-4 py-20 items-end h-full text-neutral-300 text-shadow-lg text-shadow-neutral-500 lg:px-15">
       <form className="lg:w-1/2" onSubmit={handleForm} key={questionId}>
         <p>
           Question {questionId}/{questionsArray.length}

@@ -23,9 +23,6 @@ export default function QuizScreen({ changeScreenWithFade }) {
         `answer: ${questionsArray[questionId - 1].answers[selectedEl].answer}`,
       );
 
-      if (questionsArray[questionId] === questionsArray[questionsArray.length])
-        return;
-
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         console.log("correct");
         setPoints((prev) => prev + 1);
@@ -33,24 +30,27 @@ export default function QuizScreen({ changeScreenWithFade }) {
 
       setIsAnswered(true);
     } else {
-      setIsAnswered(false);
-      setQuestionId((prev) => prev + 1);
+      if (questionId >= questionsArray.length) {
+        changeScreenWithFade("result");
+      } else {
+        setIsAnswered(false);
+        setQuestionId((prev) => prev + 1);
+      }
     }
   }
 
   return (
-    <main className="h-full bg-cover bg-bottom " style={{ backgroundImage: `url(${bgImg})` }}>
-      {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
-        changeScreenWithFade("result")
-      ) : (
-        <QuizView
-          handleForm={handleForm}
-          questionId={questionId}
-          isAnswered={isAnswered}
-          selectedAnswer={selectedAnswer}
-          points={points}
-        />
-      )}
+    <main
+      className="h-full bg-cover bg-bottom"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
+      <QuizView
+        handleForm={handleForm}
+        questionId={questionId}
+        isAnswered={isAnswered}
+        selectedAnswer={selectedAnswer}
+        points={points}
+      />
     </main>
   );
 }
