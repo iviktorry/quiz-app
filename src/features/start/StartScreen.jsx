@@ -65,7 +65,7 @@ export default function StartScreen({ changeScreenWithFade }) {
 
   return (
     <div
-      className="h-full w-full flex bg-top bg-cover items-end pb-6 font-custom"
+      className="h-full w-full flex bg-top bg-cover items-end pb-6"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div

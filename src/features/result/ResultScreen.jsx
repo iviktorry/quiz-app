@@ -22,7 +22,7 @@ export default function ResultSCreen({ points }) {
   }
 
   return (
-    <div>
+    <div className="bg-amber-300 h-full">
       <h1>
         You earned {points} {points < 2 ? "points" : "point"} out of{" "}
         {questionsArray.length}!

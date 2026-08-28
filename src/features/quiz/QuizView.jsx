@@ -8,7 +8,7 @@ export default function QuizView({
   points,
 }) {
   return (
-    <div>
+    <div className="px-4 py-6 h-full">
       <form onSubmit={handleForm} key={questionId}>
         <p>
           Question {questionId}/{questionsArray.length}
@@ -32,7 +32,7 @@ export default function QuizView({
             return (
               <label
                 key={index}
-                className={`flex gap-2 w-60 px-2 rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""}`}
+                className={`flex gap-2 w-fit px-2 items-center rounded-sm ${style} ${item.correct === true ? "after:text-red-800 after:content-['*']" : ""}`}
               >
                 <input type="radio" name="answer" value={index} />
                 {item.answer} ({index})

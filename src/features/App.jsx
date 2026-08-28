@@ -23,7 +23,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-dvh min-w-full flex overflow-hidden">
+    <div className="h-dvh min-w-full flex overflow-hidden font-custom text-3xl">
       <div
         className={`w-full transition-opacity duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
       >

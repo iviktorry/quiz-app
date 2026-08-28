@@ -38,7 +38,7 @@ export default function QuizScreen({ changeScreenWithFade }) {
   }
 
   return (
-    <main className="px-4 py-6 ">
+    <main className="h-full">
       {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
         changeScreenWithFade("result")
       ) : (
