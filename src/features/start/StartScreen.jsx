@@ -1,13 +1,15 @@
 import { useState } from "react";
 import bgImg from "../../assets/images/welcome-bg.jpg";
-import WelcomeScreenReady from "./WelcomeStructure";
-import WelcomeButton from "./WelcomeButton";
+import StartView from "./StartView";
+import StartButton from "./StartButton";
 
-export default function WelcomeScreen() {
+export default function StartScreen() {
   const [readyState, setReadyState] = useState("readyScreen");
+
   function handleButtonReady() {
     setReadyState("sureScreen");
   }
+
   function handleButtonNotReady() {
     setReadyState("notReadyScreen");
   }
@@ -18,23 +20,20 @@ export default function WelcomeScreen() {
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       {readyState === "readyScreen" ? (
-        <WelcomeScreenReady
-          label="Welcome to the quiz!"
-          text="Are you ready to start?"
-        >
-          <WelcomeButton
+        <StartView label="Welcome to the quiz!" text="Are you ready to start?">
+          <StartButton
             text="Yes"
             shadow="text-shadow-green-400"
             hover="hover:text-shadow-green-500"
             onClick={handleButtonReady}
           />
-          <WelcomeButton
+          <StartButton
             text="No"
             shadow="text-shadow-red-400"
             hover="hover:text-shadow-red-500"
             onClick={handleButtonNotReady}
           />
-        </WelcomeScreenReady>
+        </StartView>
       ) : null}
     </div>
   );

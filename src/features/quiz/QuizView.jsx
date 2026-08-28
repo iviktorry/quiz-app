@@ -1,6 +1,6 @@
 import questionsArray from "../../data";
 
-export default function QuizScreen({
+export default function QuizView({
   handleForm,
   questionId,
   isAnswered,

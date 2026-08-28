@@ -1,4 +1,4 @@
-export default function WelcomeScreenReady({ label, text, children }) {
+export default function StartView({ label, text, children }) {
   return (
     <div className="mx-auto w-auto text-center px-1 text-4xl text-neutral-950 text-shadow-lg text-shadow-neutral-200 sm:w-auto lg:text-4xl">
       <div className="mb-2 flex flex-col items-center">

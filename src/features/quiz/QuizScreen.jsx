@@ -1,9 +1,9 @@
 import questionsArray from "../../data";
-import ResultsScreen from "../result/ResultsScreen";
-import QuizScreen from "./QuizScreen";
+import ResultsScreen from "../result/ResultScreen";
+import QuizView from "./QuizView";
 import { useState } from "react";
 
-export default function Quiz() {
+export default function QuizScreen() {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -43,7 +43,7 @@ export default function Quiz() {
       {questionsArray[questionId] === questionsArray[questionsArray.length] ? (
         <ResultsScreen points={points} />
       ) : (
-        <QuizScreen
+        <QuizView
           handleForm={handleForm}
           questionId={questionId}
           isAnswered={isAnswered}
