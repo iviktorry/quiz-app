@@ -35,7 +35,7 @@ export default function QuizView({
             return (
               <label
                 key={index}
-                className={`flex items-center gap-2 px-2 rounded-sm hover:text-neutral-50 ${style} ${star}`}
+                className={`flex items-center gap-2 px-2 rounded-sm transition-all hover:text-neutral-50 ${style} ${star}`}
               >
                 <input type="radio" name="answer" value={index} />
                 {item.answer}

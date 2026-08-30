@@ -7,10 +7,21 @@ export default function QuizScreen({
   changeScreenWithFade,
   points,
   setPoints,
+  isVisible,
+  setIsVisible,
 }) {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  function changeStateWithFade() {
+    setIsVisible(false);
+
+    setTimeout(() => {
+      setIsVisible(true);
+      setQuestionId((prev) => prev + 1);
+    }, 500);
+  }
 
   function handleForm(event) {
     event.preventDefault();
@@ -37,8 +48,8 @@ export default function QuizScreen({
       if (questionId >= questionsArray.length) {
         changeScreenWithFade("result");
       } else {
+        changeStateWithFade();
         setIsAnswered(false);
-        setQuestionId((prev) => prev + 1);
       }
     }
   }
@@ -48,7 +59,9 @@ export default function QuizScreen({
       className="h-full bg-cover bg-bottom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div className="h-full transition-opacity duration-500 ease-in-out">
+      <div
+        className={`h-full transition-all duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+      >
         <QuizView
           handleForm={handleForm}
           questionId={questionId}

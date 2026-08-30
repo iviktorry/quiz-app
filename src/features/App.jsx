@@ -18,21 +18,12 @@ export default function App() {
     }, 500);
   }
 
-  function changeStateWithFade(newState, setFunction) {
-    setIsVisible(false);
-
-    setTimeout(() => {
-      setFunction(newState);
-      setIsVisible(true);
-    }, 500);
-  }
-
   const screens = {
     start: (
       <StartScreen
         changeScreenWithFade={changeScreenWithFade}
-        changeStateWithFade={changeStateWithFade}
         isVisible={isVisible}
+        setIsVisible={setIsVisible}
       />
     ),
     quiz: (
@@ -40,6 +31,8 @@ export default function App() {
         changeScreenWithFade={changeScreenWithFade}
         points={points}
         setPoints={setPoints}
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
       />
     ),
     result: (

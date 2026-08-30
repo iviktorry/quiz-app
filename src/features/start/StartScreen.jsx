@@ -6,10 +6,19 @@ import StartButton from "./components/StartButton";
 
 export default function StartScreen({
   changeScreenWithFade,
-  changeStateWithFade,
   isVisible,
+  setIsVisible,
 }) {
   const [readyState, setReadyState] = useState("ready");
+
+  function changeStateWithFade(newState) {
+    setIsVisible(false);
+
+    setTimeout(() => {
+      setReadyState(newState);
+      setIsVisible(true);
+    }, 500);
+  }
 
   const readyStates = {
     ready: (
@@ -18,13 +27,13 @@ export default function StartScreen({
           text="Yes"
           shadow="text-shadow-lime-400"
           hover="hover:text-shadow-lime-400"
-          onClick={() => changeStateWithFade("sure", setReadyState)}
+          onClick={() => changeStateWithFade("sure")}
         />
         <StartButton
           text="No"
           shadow="text-shadow-red-400"
           hover="hover:text-shadow-red-400"
-          onClick={() => changeStateWithFade("notReady", setReadyState)}
+          onClick={() => changeStateWithFade("notReady")}
         />
       </StartView>
     ),
@@ -41,7 +50,7 @@ export default function StartScreen({
           text="No"
           shadow="text-shadow-red-400"
           hover="hover:text-shadow-red-400"
-          onClick={() => changeStateWithFade("ready", setReadyState)}
+          onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
     ),
@@ -52,7 +61,7 @@ export default function StartScreen({
           text="Get back"
           shadow="text-shadow-lime-400"
           hover="hover:text-shadow-lime-500"
-          onClick={() => changeStateWithFade("ready", setReadyState)}
+          onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
     ),
