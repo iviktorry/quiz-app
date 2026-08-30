@@ -14,15 +14,6 @@ export default function QuizScreen({
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  function changeStateWithFade() {
-    setIsVisible(false);
-
-    setTimeout(() => {
-      setIsVisible(true);
-      setQuestionId((prev) => prev + 1);
-    }, 500);
-  }
-
   function handleForm(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -33,14 +24,8 @@ export default function QuizScreen({
       const selectedEl = Number(data.answer);
       setSelectedAnswer(selectedEl);
 
-      console.log(
-        `answer: ${questionsArray[questionId - 1].answers[selectedEl].answer}`,
-      );
-
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
-        console.log("correct");
         setPoints((prev) => prev + 1);
-        console.log(points);
       }
 
       setIsAnswered(true);
@@ -48,8 +33,17 @@ export default function QuizScreen({
       if (questionId >= questionsArray.length) {
         changeScreenWithFade("result");
       } else {
-        changeStateWithFade();
-        setIsAnswered(false);
+        setIsVisible(false);
+
+        setTimeout(() => {
+          setQuestionId((prev) => prev + 1);
+          setIsAnswered(false);
+          setSelectedAnswer(null);
+
+          setTimeout(() => {
+            setIsVisible(true);
+          }, 50);
+        }, 500);
       }
     }
   }
@@ -59,15 +53,14 @@ export default function QuizScreen({
       className="h-full bg-cover bg-bottom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div
-        className={`h-full transition-all duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
-      >
+      <div className={`h-full `}>
         <QuizView
           handleForm={handleForm}
           questionId={questionId}
           isAnswered={isAnswered}
           selectedAnswer={selectedAnswer}
           points={points}
+          isVisible={isVisible}
         />
       </div>
     </main>
