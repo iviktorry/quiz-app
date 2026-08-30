@@ -3,11 +3,14 @@ import QuizView from "./QuizView";
 import { useState } from "react";
 import bgImg from "../../assets/images/quiz-bg.jpg";
 
-export default function QuizScreen({ changeScreenWithFade }) {
+export default function QuizScreen({
+  changeScreenWithFade,
+  points,
+  setPoints,
+}) {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [points, setPoints] = useState(0);
 
   function handleForm(event) {
     event.preventDefault();
@@ -26,6 +29,7 @@ export default function QuizScreen({ changeScreenWithFade }) {
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         console.log("correct");
         setPoints((prev) => prev + 1);
+        console.log(points);
       }
 
       setIsAnswered(true);

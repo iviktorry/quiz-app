@@ -22,7 +22,7 @@ export default function QuizView({
             let style;
             if (isAnswered) {
               if (item.correct) {
-                style = "text-green-500";
+                style = "text-lime-500";
               } else if (index === Number(selectedAnswer)) {
                 style = "text-red-500";
               }

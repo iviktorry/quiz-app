@@ -1,31 +1,28 @@
 import questionsArray from "../../data";
+import bgDefeat from "../../assets/images/result-defeat.jpg";
+import bgVictory from "../../assets/images/result-victory.jpg";
 
 export default function ResultSCreen({ points, changeScreenWithFade }) {
+  // let bg;
+  // points < questionsArray.length / 2 ? (bg = bgVictory) : (bg = bgDefeat)
   let message;
 
-  if (points < questionsArray.length / 5) {
-    message = "Better luck next time..";
-  } else if (points < questionsArray.length / 3) {
-    message = "Not bad!";
+  if (points > questionsArray.length / 2) {
+    message = "Victory";
   } else if (points < questionsArray.length / 2) {
-    message = "Great! You pretty know this theme ;)";
-  } else if ((points = questionsArray.length / 2)) {
-    message = "Exactly the half! Good job!";
-  } else if (points < questionsArray.length / 1.5) {
-    message = "Perfect! Thats a great job!";
-  } else if (points < questionsArray.length / 1.3) {
-    message = "Almost there!";
-  } else if (points < questionsArray.length / 1.2) {
-    message = "Wonderful!! Great result!";
-  } else if ((points = questionsArray.length)) {
-    message = "Excellent! Congratulations!!!";
+    message = "Defeat";
   }
 
   return (
-    <div className="bg-red-300 h-full">
+    <div
+      className="h-full text-white bg-cover"
+      style={{
+        backgroundImage: ` url(${points > questionsArray.length / 2 ? bgVictory : bgDefeat})`,
+      }}
+    >
       <h1>
-        You earned {points} {points < 2 ? "points" : "point"} out of{" "}
-        {questionsArray.length}!
+        You earned {points === 0 ? "0" : points}
+        {points === 1 ? " point" : " points"} out of {questionsArray.length}!
       </h1>
       <p>{message}</p>
       <button onClick={() => changeScreenWithFade("start")} className="">

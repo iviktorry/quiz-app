@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function App() {
   const [screen, setScreen] = useState("start");
   const [isVisible, setIsVisible] = useState(true);
+  const [points, setPoints] = useState(0);
 
   function changeScreenWithFade(newState) {
     setIsVisible(false);
@@ -18,8 +19,19 @@ export default function App() {
 
   const screens = {
     start: <StartScreen changeScreenWithFade={changeScreenWithFade} />,
-    quiz: <QuizScreen changeScreenWithFade={changeScreenWithFade} />,
-    result: <ResultScreen changeScreenWithFade={changeScreenWithFade} />,
+    quiz: (
+      <QuizScreen
+        changeScreenWithFade={changeScreenWithFade}
+        points={points}
+        setPoints={setPoints}
+      />
+    ),
+    result: (
+      <ResultScreen
+        changeScreenWithFade={changeScreenWithFade}
+        points={points}
+      />
+    ),
   };
 
   return (
