@@ -48,13 +48,15 @@ export default function QuizScreen({
       className="h-full bg-cover bg-bottom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <QuizView
-        handleForm={handleForm}
-        questionId={questionId}
-        isAnswered={isAnswered}
-        selectedAnswer={selectedAnswer}
-        points={points}
-      />
+      <div className="h-full transition-opacity duration-500 ease-in-out">
+        <QuizView
+          handleForm={handleForm}
+          questionId={questionId}
+          isAnswered={isAnswered}
+          selectedAnswer={selectedAnswer}
+          points={points}
+        />
+      </div>
     </main>
   );
 }

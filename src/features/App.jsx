@@ -5,20 +5,36 @@ import { useState } from "react";
 
 export default function App() {
   const [screen, setScreen] = useState("start");
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisibleScreen, setIsVisibleScreen] = useState(true);
   const [points, setPoints] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   function changeScreenWithFade(newState) {
-    setIsVisible(false);
+    setIsVisibleScreen(false);
 
     setTimeout(() => {
       setScreen(newState);
+      setIsVisibleScreen(true);
+    }, 500);
+  }
+
+  function changeStateWithFade(newState, setFunction) {
+    setIsVisible(false);
+
+    setTimeout(() => {
+      setFunction(newState);
       setIsVisible(true);
     }, 500);
   }
 
   const screens = {
-    start: <StartScreen changeScreenWithFade={changeScreenWithFade} />,
+    start: (
+      <StartScreen
+        changeScreenWithFade={changeScreenWithFade}
+        changeStateWithFade={changeStateWithFade}
+        isVisible={isVisible}
+      />
+    ),
     quiz: (
       <QuizScreen
         changeScreenWithFade={changeScreenWithFade}
@@ -37,7 +53,7 @@ export default function App() {
   return (
     <div className="h-dvh min-w-full flex overflow-hidden font-custom text-3xl bg-black">
       <div
-        className={`w-full transition-all duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+        className={`w-full transition-all duration-500 ease-in-out ${isVisibleScreen ? "opacity-100" : "opacity-0"}`}
       >
         {screens[screen]}
       </div>
