@@ -30,7 +30,6 @@ export default function App() {
     quiz: (
       <QuizScreen
         changeScreenWithFade={changeScreenWithFade}
-        points={points}
         setPoints={setPoints}
         isVisible={isVisible}
         setIsVisible={setIsVisible}

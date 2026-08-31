@@ -7,7 +7,6 @@ export default function QuizView({
   questionId,
   isAnswered,
   selectedAnswer,
-  points,
   isVisible,
   hasLives,
 }) {
@@ -17,7 +16,6 @@ export default function QuizView({
         <p className="transition-all">
           Question {questionId}/{questionsArray.length}
         </p>
-        <p className="pb-1 transition-all">Points: {points}</p>
 
         <div className="flex gap-1.5 pb-4">
           {Array.from({ length: hasLives }).map((item, index) => (
