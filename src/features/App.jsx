@@ -8,6 +8,7 @@ export default function App() {
   const [isVisibleScreen, setIsVisibleScreen] = useState(true);
   const [points, setPoints] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [hasLives, setHasLives] = useState(3);
 
   function changeScreenWithFade(newState) {
     setIsVisibleScreen(false);
@@ -33,12 +34,15 @@ export default function App() {
         setPoints={setPoints}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
+        hasLives={hasLives}
+        setHasLives={setHasLives}
       />
     ),
     result: (
       <ResultScreen
         changeScreenWithFade={changeScreenWithFade}
         points={points}
+        hasLives={hasLives}
       />
     ),
   };

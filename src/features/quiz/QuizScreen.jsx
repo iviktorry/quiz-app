@@ -9,11 +9,12 @@ export default function QuizScreen({
   setPoints,
   isVisible,
   setIsVisible,
+  hasLives,
+  setHasLives,
 }) {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [hasLives, setHasLives] = useState(3);
 
   function handleForm(event) {
     event.preventDefault();

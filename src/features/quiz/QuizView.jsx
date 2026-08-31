@@ -11,27 +11,27 @@ export default function QuizView({
   hasLives,
 }) {
   return (
-    <div className="flex px-4 py-20 items-end h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:px-15">
-      <form className="lg:w-1/2" onSubmit={handleForm} key={questionId}>
+    <div className="flex px-4 py-17 items-end lg:items-stretch lg:top-[40%] lg:relative h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:px-15">
+      <form
+        className="lg:w-1/2 flex flex-col gap-2 items-start"
+        onSubmit={handleForm}
+        key={questionId}
+      >
         <p className="transition-all">
           Question {questionId}/{questionsArray.length}
         </p>
 
-        <div className="flex gap-1.5 pb-4">
+        <div className={`flex gap-1.5 h-7`}>
           {Array.from({ length: hasLives }).map((item, index) => (
             <img
               src={heartFullColored}
               key={index}
               alt="heart icon"
-              className="max-w-7 invert"
+              className="invert"
             />
           ))}
           {hasLives % 1 !== 0 ? (
-            <img
-              src={heartHalfColored}
-              alt="heart icon"
-              className="max-w-7 invert"
-            />
+            <img src={heartHalfColored} alt="heart icon" className={`invert`} />
           ) : null}
         </div>
 
@@ -70,7 +70,7 @@ export default function QuizView({
 
         <button
           type="submit"
-          className="px-4 rounded-sm mt-4 text-shadow-lg text-shadow-neutral-600 transition-all hover:text-neutral-50"
+          className={`rounded-sm text-shadow-lg text-shadow-neutral-600 hover:text-neutral-50`}
         >
           {isAnswered ? "next" : "submit"}
         </button>
