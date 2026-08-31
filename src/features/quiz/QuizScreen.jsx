@@ -13,6 +13,7 @@ export default function QuizScreen({
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [hasLives, setHasLives] = useState(3);
 
   function handleForm(event) {
     event.preventDefault();
@@ -26,11 +27,22 @@ export default function QuizScreen({
 
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         setPoints((prev) => prev + 1);
+        setHasLives((prev) => prev + 0.5);
+
+        if (hasLives >= 3) {
+          setHasLives(3);
+        }
+      } else {
+        setHasLives((prev) => prev - 1);
       }
 
       setIsAnswered(true);
     } else {
-      if (questionId >= questionsArray.length) {
+      if (
+        questionId >= questionsArray.length ||
+        hasLives === 0 ||
+        hasLives < 0
+      ) {
         changeScreenWithFade("result");
       } else {
         setIsVisible(false);
@@ -61,6 +73,7 @@ export default function QuizScreen({
           selectedAnswer={selectedAnswer}
           points={points}
           isVisible={isVisible}
+          hasLives={hasLives}
         />
       </div>
     </main>

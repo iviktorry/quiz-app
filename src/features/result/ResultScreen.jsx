@@ -4,8 +4,6 @@ import bgVictory from "../../assets/images/result-victory.jpg";
 import ResultView from "./ResultView";
 
 export default function ResultSCreen({ points, changeScreenWithFade }) {
-  // let bg;
-  // points < questionsArray.length / 2 ? (bg = bgVictory) : (bg = bgDefeat)
   let message;
 
   if (points > questionsArray.length / 2) {

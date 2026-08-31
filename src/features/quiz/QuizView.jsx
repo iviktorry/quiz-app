@@ -1,4 +1,6 @@
 import questionsArray from "../../data";
+import heartFullColored from "../../assets/images/heart-full-colored.svg";
+import heartHalfColored from "../../assets/images/heart-half-colored.svg";
 
 export default function QuizView({
   handleForm,
@@ -7,6 +9,7 @@ export default function QuizView({
   selectedAnswer,
   points,
   isVisible,
+  hasLives,
 }) {
   return (
     <div className="flex px-4 py-20 items-end h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:px-15">
@@ -14,7 +17,25 @@ export default function QuizView({
         <p className="transition-all">
           Question {questionId}/{questionsArray.length}
         </p>
-        <p className="pb-4 transition-all">Points: {points}</p>
+        <p className="pb-1 transition-all">Points: {points}</p>
+
+        <div className="flex gap-1.5 pb-4">
+          {Array.from({ length: hasLives }).map((item, index) => (
+            <img
+              src={heartFullColored}
+              key={index}
+              alt="heart icon"
+              className="max-w-7 invert"
+            />
+          ))}
+          {hasLives % 1 !== 0 ? (
+            <img
+              src={heartHalfColored}
+              alt="heart icon"
+              className="max-w-7 invert"
+            />
+          ) : null}
+        </div>
 
         <div
           className={`transition-all duration-500 ease ${isVisible ? "opacity-100" : "opacity-0"}`}
