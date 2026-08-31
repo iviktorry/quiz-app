@@ -26,6 +26,7 @@ export default function App() {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
         setPoints={setPoints}
+        setHasLives={setHasLives}
       />
     ),
     quiz: (

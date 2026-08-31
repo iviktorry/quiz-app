@@ -1,5 +1,5 @@
 import { useState } from "react";
-import bgImg from "../../assets/images/start-bg-2.jpg";
+import bgImg from "../../assets/images/start-bg.jpg";
 import StartView from "./StartView";
 import StartButton from "./components/StartButton";
 
@@ -8,12 +8,14 @@ export default function StartScreen({
   isVisible,
   setIsVisible,
   setPoints,
+  setHasLives,
 }) {
   const [readyState, setReadyState] = useState("ready");
 
   function changeStateWithFade(newState) {
     setIsVisible(false);
     setPoints(0);
+    setHasLives(3);
 
     setTimeout(() => {
       setReadyState(newState);
