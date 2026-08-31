@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import bgImg from "../../assets/images/start-bg.jpg";
-import bgImg2 from "../../assets/images/start-bg-2.jpg";
+import bgImg from "../../assets/images/start-bg-2.jpg";
 import StartView from "./StartView";
 import StartButton from "./components/StartButton";
 
@@ -8,11 +7,13 @@ export default function StartScreen({
   changeScreenWithFade,
   isVisible,
   setIsVisible,
+  setPoints,
 }) {
   const [readyState, setReadyState] = useState("ready");
 
   function changeStateWithFade(newState) {
     setIsVisible(false);
+    setPoints(0);
 
     setTimeout(() => {
       setReadyState(newState);
@@ -70,7 +71,7 @@ export default function StartScreen({
   return (
     <div
       className="h-full w-full flex bg-bottom bg-cover items-end pb-6"
-      style={{ backgroundImage: `url(${bgImg2})` }}
+      style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div
         className={`w-full transition-opacity duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}

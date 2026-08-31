@@ -24,6 +24,7 @@ export default function App() {
         changeScreenWithFade={changeScreenWithFade}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
+        setPoints={setPoints}
       />
     ),
     quiz: (
