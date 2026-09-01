@@ -47,11 +47,11 @@ export default function ResultSCreen({ points, changeScreenWithFade }) {
 
   return (
     <div
-      className="h-full text-white bg-cover bg-bottom flex justify-center pb-4"
+      className="h-full text-white bg-cover bg-bottom flex justify-center"
       style={{
         backgroundImage: `url(${bg})`,
       }}
-    > 
+    >
       <ResultView
         changeScreenWithFade={changeScreenWithFade}
         message={message}

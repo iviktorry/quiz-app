@@ -11,8 +11,7 @@ export default function QuizView({
   hasLives,
 }) {
   return (
-    // lg:items-start lg:pt-[17%]
-    <div className="flex PX-4 py-[20%] sm:py-[12%] lg:py-[8%] xl:py-[6%] items-end  h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:pl-10">
+    <div className="flex px-4 py-[20%] sm:py-[12%] lg:py-[8%] xl:py-[6%] items-end  h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:pl-10">
       <form
         className="lg:w-5/7 flex flex-col gap-4 items-start"
         onSubmit={handleForm}
@@ -24,7 +23,7 @@ export default function QuizView({
 
         <div className="flex gap-1.5 h-7 items-center pb-4">
           {[0, 1, 2].map((index) => {
-            const isFull = index < Math.floor(hasLives);
+            // const isFull = index < Math.floor(hasLives);
             const isHalf = index === Math.floor(hasLives) && hasLives % 1 !== 0;
             const isAlive = index < hasLives;
 
