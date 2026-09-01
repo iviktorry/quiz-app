@@ -43,7 +43,6 @@ export default function App() {
       <ResultScreen
         changeScreenWithFade={changeScreenWithFade}
         points={points}
-        hasLives={hasLives}
       />
     ),
   };

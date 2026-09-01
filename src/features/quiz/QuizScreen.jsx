@@ -5,7 +5,6 @@ import bgImg from "../../assets/images/quiz-bg.jpg";
 
 export default function QuizScreen({
   changeScreenWithFade,
-  points,
   setPoints,
   isVisible,
   setIsVisible,
@@ -72,7 +71,6 @@ export default function QuizScreen({
           questionId={questionId}
           isAnswered={isAnswered}
           selectedAnswer={selectedAnswer}
-          points={points}
           isVisible={isVisible}
           hasLives={hasLives}
         />
