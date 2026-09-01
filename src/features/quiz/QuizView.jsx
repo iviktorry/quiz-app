@@ -34,12 +34,12 @@ export default function QuizView({
                   isAlive
                     ? "opacity-100 scale-100 translate-y-0"
                     : "opacity-0 scale-50 -translate-y-2 pointer-events-none"
-                }`}
+                } ${hasLives === 1 ? "animate-pulse" : ""}`}
               >
                 <img
                   src={heartFullColored}
                   alt="full heart"
-                  className={`absolute inset-0 invert transition-opacity duration-300 ${
+                  className={`absolute inset-0 invert transition-opacity duration-500 ${
                     isFull ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -47,7 +47,7 @@ export default function QuizView({
                 <img
                   src={heartHalfColored}
                   alt="half heart"
-                  className={`absolute inset-0 invert transition-opacity duration-300 ${
+                  className={`absolute inset-0 invert transition-opacity duration-500 ${
                     isHalf ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -75,7 +75,7 @@ export default function QuizView({
               return (
                 <label
                   key={index}
-                  className={`flex items-center gap-2 rounded-sm transition-all duration-400 hover:text-neutral-50 ${style}`}
+                  className={`flex items-center gap-2 rounded-sm transition-all duration-500 hover:text-neutral-50 ${style}`}
                 >
                   <input type="radio" name="answer" value={index} />
                   {item.answer} {item.correct ? "*" : ""}
