@@ -6,12 +6,25 @@ export const mainTheme = new Audio(mainThemeSound);
 export const victoryTheme = new Audio(victoryThemeSound);
 export const defeatTheme = new Audio(defeatThemeSound);
 
-mainTheme.loop = true;
-victoryTheme.loop = true;
-defeatTheme.loop = true;
+const allTracks = [mainTheme, victoryTheme, defeatTheme];
+
+allTracks.forEach((track) => {
+  track.loop = true;
+});
+
+export function playMusic(track) {
+  stopAllMusic();
+  track.play().catch(() => {});
+}
+
+export function toggleMusic(isMuted) {
+  allTracks.forEach((track) => {
+    track.muted = isMuted;
+  });
+}
 
 export function stopAllMusic() {
-  [mainTheme, victoryTheme, defeatTheme].forEach((track) => {
+  allTracks.forEach((track) => {
     track.pause();
     track.currentTime = 0;
   });
