@@ -4,6 +4,7 @@ import { useState } from "react";
 import bgImg from "../../assets/images/quiz-bg.jpg";
 import correctAudio from "../../assets/sounds/correct.mp3";
 import wrongAudio from "../../assets/sounds/wrong.mp3";
+import gameOverAudio from "../../assets/sounds/gameOver.mp3";
 
 export default function QuizScreen({
   changeScreenWithFade,
@@ -19,6 +20,7 @@ export default function QuizScreen({
 
   const correctSound = new Audio(correctAudio);
   const wrongSound = new Audio(wrongAudio);
+  const gameOverSound = new Audio(gameOverAudio);
 
   function handleForm(event) {
     event.preventDefault();
@@ -39,17 +41,18 @@ export default function QuizScreen({
           setHasLives(3);
         }
       } else {
-        setHasLives((prev) => prev - 1);
-        wrongSound.play();
+        const newLives = hasLives - 1;
+        setHasLives(newLives);
+        if (newLives <= 0) {
+          gameOverSound.play();
+        } else {
+          wrongSound.play();
+        }
       }
 
       setIsAnswered(true);
     } else {
-      if (
-        questionId >= questionsArray.length ||
-        hasLives === 0 ||
-        hasLives < 0
-      ) {
+      if (questionId >= questionsArray.length || hasLives <= 0) {
         changeScreenWithFade("result");
       } else {
         setIsVisible(false);
