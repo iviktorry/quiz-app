@@ -61,7 +61,7 @@ export default function QuizView({
         >
           <h2 className="">{questionsArray[questionId - 1].question}</h2>
 
-          <div className={`grid gap-x-6 gap-y-2 items-center lg:grid-cols-2 `}>
+          <div className={`grid gap-x-6 gap-y-3 items-center lg:grid-cols-2 `}>
             {questionsArray[questionId - 1].answers.map((item, index) => {
               let style;
               if (isAnswered) {

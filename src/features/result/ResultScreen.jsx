@@ -2,6 +2,7 @@ import questionsArray from "../../data";
 import ResultView from "./ResultView";
 import bgVictory100 from "../../assets/images/result-victory-100.avif";
 import bgVictory90 from "../../assets/images/result-victory-90.jpg";
+import bgVictory90Mob from "../../assets/images/result-victory-90-mob.jpg";
 import bgVictory70 from "../../assets/images/result-victory-70.webp";
 import bgVictory50 from "../../assets/images/result-victory-50.png";
 import bgDefeat30 from "../../assets/images/result-defeat-30.png";
@@ -10,6 +11,7 @@ import bgDefeat0 from "../../assets/images/result-defeat-0.png";
 export default function ResultSCreen({ points, changeScreenWithFade }) {
   let message;
   let bg;
+  let bgMob;
   let text;
   const percent = points / questionsArray.length;
 
@@ -21,6 +23,7 @@ export default function ResultSCreen({ points, changeScreenWithFade }) {
   } else if (percent >= 0.9) {
     message = "Victory";
     bg = bgVictory90;
+    bgMob = bgVictory90Mob;
     text =
       "Tanjiro, Zenitsu, and Inosuke executed a perfect synchronized strike against Upper Moon Six. Breaking through poison and fatal wounds, they severed both Gyutaro's and Daki's heads at the exact same second.";
   } else if (percent >= 0.7) {
@@ -47,9 +50,10 @@ export default function ResultSCreen({ points, changeScreenWithFade }) {
 
   return (
     <div
-      className="h-full text-white bg-cover bg-bottom flex justify-center"
+      className="h-full text-white bg-cover bg-bottom flex justify-center bg-(image:--bg-mobile) sm:bg-(image:--bg-desktop)"
       style={{
-        backgroundImage: `url(${bg})`,
+        "--bg-mobile": `url(${bgMob || bg})`,
+        "--bg-desktop": `url(${bg})`,
       }}
     >
       <ResultView
