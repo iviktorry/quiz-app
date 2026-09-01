@@ -2,6 +2,8 @@ import questionsArray from "../../data";
 import QuizView from "./QuizView";
 import { useState } from "react";
 import bgImg from "../../assets/images/quiz-bg.jpg";
+import correctAudio from "../../assets/sounds/correct.mp3";
+import wrongAudio from "../../assets/sounds/wrong.mp3";
 
 export default function QuizScreen({
   changeScreenWithFade,
@@ -14,6 +16,9 @@ export default function QuizScreen({
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  const correctSound = new Audio(correctAudio);
+  const wrongSound = new Audio(wrongAudio);
 
   function handleForm(event) {
     event.preventDefault();
@@ -73,6 +78,8 @@ export default function QuizScreen({
           selectedAnswer={selectedAnswer}
           isVisible={isVisible}
           hasLives={hasLives}
+          correctSound={correctSound}
+          wrongSound={wrongSound}
         />
       </div>
     </main>
