@@ -2,7 +2,12 @@ import StartScreen from "./start/StartScreen";
 import QuizScreen from "./quiz/QuizScreen";
 import ResultScreen from "./result/ResultScreen";
 import { useState } from "react";
-
+import {
+  mainTheme,
+  victoryTheme,
+  defeatTheme,
+  stopAllMusic,
+} from "../utils/audio";
 
 export default function App() {
   const [screen, setScreen] = useState("start");
@@ -11,13 +16,24 @@ export default function App() {
   const [isVisible, setIsVisible] = useState(true);
   const [hasLives, setHasLives] = useState(3);
 
-
-
   function changeScreenWithFade(newState) {
     setIsVisibleScreen(false);
 
     setTimeout(() => {
       setScreen(newState);
+
+      stopAllMusic();
+
+      if (newState === "start") {
+        mainTheme.play().catch(() => {});
+      } else if (newState === "result") {
+        if (hasLives > 0) {
+          victoryTheme.play().catch(() => {});
+        } else {
+          defeatTheme.play().catch(() => {});
+        }
+      }
+
       setIsVisibleScreen(true);
     }, 500);
   }
