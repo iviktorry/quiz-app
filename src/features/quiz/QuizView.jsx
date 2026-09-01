@@ -21,23 +21,37 @@ export default function QuizView({
           Question {questionId}/{questionsArray.length}
         </p>
 
-        <div className="flex gap-1.5 h-7 items-center pb-4">
+        <div className="flex gap-1.5 h-7 items-center transition-all">
           {[0, 1, 2].map((index) => {
-            // const isFull = index < Math.floor(hasLives);
+            const isFull = index < Math.floor(hasLives);
             const isHalf = index === Math.floor(hasLives) && hasLives % 1 !== 0;
-            const isAlive = index < hasLives;
+            const isAlive = isFull || isHalf;
 
             return (
-              <img
+              <div
                 key={index}
-                src={isHalf ? heartHalfColored : heartFullColored}
-                alt="heart icon"
-                className={`max-w-7 invert transition-all duration-500 ease-in-out ${
+                className={`relative max-w-7 w-7 h-7 transition-all duration-500 ease-in-out ${
                   isAlive
                     ? "opacity-100 scale-100 translate-y-0"
                     : "opacity-0 scale-50 -translate-y-2 pointer-events-none"
                 }`}
-              />
+              >
+                <img
+                  src={heartFullColored}
+                  alt="full heart"
+                  className={`absolute inset-0 invert transition-opacity duration-300 ${
+                    isFull ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+
+                <img
+                  src={heartHalfColored}
+                  alt="half heart"
+                  className={`absolute inset-0 invert transition-opacity duration-300 ${
+                    isHalf ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </div>
             );
           })}
         </div>
@@ -47,9 +61,7 @@ export default function QuizView({
         >
           <h2 className="">{questionsArray[questionId - 1].question}</h2>
 
-          <div
-            className={`grid max-w-fit gap-x-6 gap-y-2 items-center lg:grid-cols-2 `}
-          >
+          <div className={`grid gap-x-6 gap-y-2 items-center lg:grid-cols-2 `}>
             {questionsArray[questionId - 1].answers.map((item, index) => {
               let style;
               if (isAnswered) {
