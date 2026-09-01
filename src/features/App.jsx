@@ -2,9 +2,7 @@ import StartScreen from "./start/StartScreen";
 import QuizScreen from "./quiz/QuizScreen";
 import ResultScreen from "./result/ResultScreen";
 import { useState } from "react";
-import mainThemeSound from "../assets/sounds/main-theme.mp3";
-import victoryThemeSound from "../assets/sounds/victory-theme.mp3";
-import defeatThemeSound from "../assets/sounds/defeat-theme.mp3";
+
 
 export default function App() {
   const [screen, setScreen] = useState("start");
@@ -13,9 +11,7 @@ export default function App() {
   const [isVisible, setIsVisible] = useState(true);
   const [hasLives, setHasLives] = useState(3);
 
-  const mainTheme = new Audio(mainThemeSound);
-  const victoryTheme = new Audio(victoryThemeSound);
-  const defeatTheme = new Audio(defeatThemeSound);
+
 
   function changeScreenWithFade(newState) {
     setIsVisibleScreen(false);
