@@ -33,12 +33,14 @@ export default function QuizScreen({
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         setPoints((prev) => prev + 1);
         setHasLives((prev) => prev + 0.5);
+        correctSound.play();
 
         if (hasLives >= 3) {
           setHasLives(3);
         }
       } else {
         setHasLives((prev) => prev - 1);
+        wrongSound.play();
       }
 
       setIsAnswered(true);

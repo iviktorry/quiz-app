@@ -9,8 +9,6 @@ export default function QuizView({
   selectedAnswer,
   isVisible,
   hasLives,
-  correctSound,
-  wrongSound,
 }) {
   return (
     <div className="flex px-4 py-[20%] sm:py-[12%] lg:py-[8%] xl:py-[6%] items-end  h-full text-neutral-300 text-shadow-lg text-shadow-neutral-700 lg:pl-10">
@@ -69,10 +67,8 @@ export default function QuizView({
               if (isAnswered) {
                 if (item.correct) {
                   style = "text-lime-500";
-                  correctSound.play();
                 } else if (index === Number(selectedAnswer)) {
                   style = "text-red-500";
-                  wrongSound.play();
                 }
               }
 
