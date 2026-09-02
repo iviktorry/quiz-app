@@ -16,9 +16,6 @@ export default function QuizScreen({
 }) {
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
-  correctSound,
-  wrongSound,
-  gameOverSound,
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   function handleForm(event) {
