@@ -75,13 +75,13 @@ export default function QuizView({
               return (
                 <label
                   key={index}
-                  className={`flex items-center gap-2 rounded-sm transition-all duration-500 hover:text-neutral-50 ${style}`}
+                  className={`flex items-center gap-2 rounded-sm transition-all duration-500 hover:text-neutral-50 ${style} ${isAnswered ? "pointer-events-none cursor-not-allowed" : "cursor-pointer"}`}
                 >
                   <input
                     type="radio"
                     name="answer"
                     value={index}
-                    disabled={isAnswered}
+                    // disabled={isAnswered}
                   />
                   {item.answer} {item.correct ? "*" : ""}
                 </label>
