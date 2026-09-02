@@ -1,5 +1,5 @@
 import { useState } from "react";
-import bgImg from "../../assets/images/start-bg.jpg";
+import bgImg from "../../assets/images/start-bg.webp";
 import StartView from "./StartView";
 import StartButton from "./components/StartButton";
 import { mainTheme, playMusic } from "../../utils/audio";
@@ -11,7 +11,6 @@ export default function StartScreen({
 }) {
   const [readyState, setReadyState] = useState("ready");
   const [isVisible, setIsVisible] = useState(true);
-
 
   function changeStateWithFade(newState) {
     playMusic(mainTheme);

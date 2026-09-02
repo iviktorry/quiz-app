@@ -1,7 +1,7 @@
 import questionsArray from "../../data";
 import QuizView from "./QuizView";
 import { useState } from "react";
-import bgImg from "../../assets/images/quiz-bg.jpg";
+import bgImg from "../../assets/images/quiz-bg.webp";
 
 export default function QuizScreen({
   changeScreenWithFade,

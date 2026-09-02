@@ -1,12 +1,12 @@
 import questionsArray from "../../data";
 import ResultView from "./ResultView";
 import bgVictory100 from "../../assets/images/result-victory-100.avif";
-import bgVictory90 from "../../assets/images/result-victory-90.jpg";
-import bgVictory90Mob from "../../assets/images/result-victory-90-mob.jpg";
+import bgVictory90 from "../../assets/images/result-victory-90.webp";
+import bgVictory90Mob from "../../assets/images/result-victory-90-mob.webp";
 import bgVictory70 from "../../assets/images/result-victory-70.webp";
-import bgVictory50 from "../../assets/images/result-victory-50.png";
-import bgDefeat30 from "../../assets/images/result-defeat-30.png";
-import bgDefeat0 from "../../assets/images/result-defeat-0.png";
+import bgVictory50 from "../../assets/images/result-victory-50.webp";
+import bgDefeat30 from "../../assets/images/result-defeat-30.webp";
+import bgDefeat0 from "../../assets/images/result-defeat-0.webp";
 
 export default function ResultScreen({ points, changeScreenWithFade }) {
   let message;
