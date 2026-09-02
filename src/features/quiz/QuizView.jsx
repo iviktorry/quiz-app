@@ -83,7 +83,8 @@ export default function QuizView({
                     value={index}
                     // disabled={isAnswered}
                   />
-                  {item.answer} {item.correct ? "*" : ""}
+                  {item.answer} 
+                  {/* {item.correct ? "*" : ""} */}
                 </label>
               );
             })}
