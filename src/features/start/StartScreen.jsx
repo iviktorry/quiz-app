@@ -26,19 +26,24 @@ export default function StartScreen({
     }, 500);
   }
 
+  const shadowGreen = "text-shadow-lime-400";
+  const hoverGreen = "hover:text-shadow-lime-400";
+  const shadowRed = "text-shadow-red-400";
+  const hoverRed = "hover:text-shadow-red-400";
+
   const readyStates = {
     ready: (
       <StartView label="Welcome to the quiz!" text="Are you ready to start?">
         <StartButton
           text="Yes"
-          shadow="text-shadow-lime-400"
-          hover="hover:text-shadow-lime-400"
+          shadow={shadowGreen}
+          hover={hoverGreen}
           onClick={() => changeStateWithFade("sure")}
         />
         <StartButton
           text="No"
-          shadow="text-shadow-red-400"
-          hover="hover:text-shadow-red-400"
+          shadow={shadowRed}
+          hover={hoverRed}
           onClick={() => changeStateWithFade("notReady")}
         />
       </StartView>
@@ -48,14 +53,14 @@ export default function StartScreen({
       <StartView label="Are you sure???">
         <StartButton
           text="Yes"
-          shadow="text-shadow-lime-400"
-          hover="hover:text-shadow-lime-400"
+          shadow={shadowGreen}
+          hover={hoverGreen}
           onClick={() => changeScreenWithFade("quiz")} // next step
         />
         <StartButton
           text="No"
-          shadow="text-shadow-red-400"
-          hover="hover:text-shadow-red-400"
+          shadow={shadowRed}
+          hover={hoverRed}
           onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
@@ -65,8 +70,8 @@ export default function StartScreen({
       <StartView label="See you next time">
         <StartButton
           text="Get back"
-          shadow="text-shadow-lime-400"
-          hover="hover:text-shadow-lime-400"
+          shadow={shadowGreen}
+          hover={hoverGreen}
           onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
