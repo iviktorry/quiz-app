@@ -30,15 +30,12 @@ export default function QuizScreen({
 
       if (questionsArray[questionId - 1].answers[selectedEl].correct == true) {
         setPoints((prev) => prev + 1);
-        setHasLives((prev) => prev + 0.5);
+        setHasLives((prev) => Math.min(prev + 0.5, 3));
         correctSound.play();
-
-        if (hasLives >= 3) {
-          setHasLives(3);
-        }
       } else {
         const newLives = hasLives - 1;
         setHasLives(newLives);
+
         if (newLives <= 0) {
           gameOverSound.play();
         } else {
@@ -71,18 +68,14 @@ export default function QuizScreen({
       className="h-full bg-cover bg-bottom"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div className={`h-full `}>
-        <QuizView
-          handleForm={handleForm}
-          questionId={questionId}
-          isAnswered={isAnswered}
-          selectedAnswer={selectedAnswer}
-          isVisible={isVisible}
-          hasLives={hasLives}
-          correctSound={correctSound}
-          wrongSound={wrongSound}
-        />
-      </div>
+      <QuizView
+        handleForm={handleForm}
+        questionId={questionId}
+        isAnswered={isAnswered}
+        selectedAnswer={selectedAnswer}
+        isVisible={isVisible}
+        hasLives={hasLives}
+      />
     </main>
   );
 }
