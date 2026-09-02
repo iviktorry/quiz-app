@@ -59,7 +59,7 @@ export default function QuizView({
         <div
           className={`flex flex-col gap-2 transition-all duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
-          <h2 className="">{questionsArray[questionId - 1].question}</h2>
+          <h2>{questionsArray[questionId - 1].question}</h2>
 
           <div className={`grid gap-x-6 gap-y-3 items-center lg:grid-cols-2 `}>
             {questionsArray[questionId - 1].answers.map((item, index) => {
@@ -84,7 +84,6 @@ export default function QuizView({
                     // disabled={isAnswered}
                   />
                   {item.answer} 
-                  {/* {item.correct ? "*" : ""} */}
                 </label>
               );
             })}

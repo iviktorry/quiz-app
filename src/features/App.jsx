@@ -17,7 +17,6 @@ export default function App() {
   const [screen, setScreen] = useState("start");
   const [isVisibleScreen, setIsVisibleScreen] = useState(true);
   const [points, setPoints] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
   const [hasLives, setHasLives] = useState(3);
 
   function changeScreenWithFade(newState) {
@@ -46,8 +45,6 @@ export default function App() {
     start: (
       <StartScreen
         changeScreenWithFade={changeScreenWithFade}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
         setPoints={setPoints}
         setHasLives={setHasLives}
       />
@@ -56,8 +53,6 @@ export default function App() {
       <QuizScreen
         changeScreenWithFade={changeScreenWithFade}
         setPoints={setPoints}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
         hasLives={hasLives}
         setHasLives={setHasLives}
         correctSound={correctSound}

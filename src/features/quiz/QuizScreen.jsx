@@ -6,8 +6,6 @@ import bgImg from "../../assets/images/quiz-bg.jpg";
 export default function QuizScreen({
   changeScreenWithFade,
   setPoints,
-  isVisible,
-  setIsVisible,
   hasLives,
   setHasLives,
   correctSound,
@@ -17,6 +15,8 @@ export default function QuizScreen({
   const [questionId, setQuestionId] = useState(1);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isVisible, setIsVisible] = useState(true);
+
 
   function handleForm(event) {
     event.preventDefault();

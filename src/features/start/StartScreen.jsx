@@ -6,12 +6,12 @@ import { mainTheme, playMusic } from "../../utils/audio";
 
 export default function StartScreen({
   changeScreenWithFade,
-  isVisible,
-  setIsVisible,
   setPoints,
   setHasLives,
 }) {
   const [readyState, setReadyState] = useState("ready");
+  const [isVisible, setIsVisible] = useState(true);
+
 
   function changeStateWithFade(newState) {
     playMusic(mainTheme);
