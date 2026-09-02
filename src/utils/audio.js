@@ -14,25 +14,25 @@ export const gameOverSound = new Audio(gameOverAudio);
 
 const allTracks = [mainTheme, victoryTheme, defeatTheme];
 const allSoundEffects = [correctSound, wrongSound, gameOverSound];
+const allMusic = [...allTracks, ...allSoundEffects];
 
-allSoundEffects.forEach((sound) => {
+allMusic.forEach((sound) => {
   sound.volume = 0.3;
 });
 
 allTracks.forEach((track) => {
   track.loop = true;
-  track.volume = 0.2;
 });
 
 export function playMusic(track) {
-  if (!track.pause) return;
+  if (!track.paused) return;
 
   stopAllMusicExcept(track);
   track.play().catch(() => {});
 }
 
 export function toggleMusic(isMuted) {
-  allTracks.forEach((track) => {
+  allMusic.forEach((track) => {
     track.muted = isMuted;
   });
 }
