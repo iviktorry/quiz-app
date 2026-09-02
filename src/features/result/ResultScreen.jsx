@@ -8,7 +8,7 @@ import bgVictory50 from "../../assets/images/result-victory-50.png";
 import bgDefeat30 from "../../assets/images/result-defeat-30.png";
 import bgDefeat0 from "../../assets/images/result-defeat-0.png";
 
-export default function ResultSCreen({ points, changeScreenWithFade }) {
+export default function ResultScreen({ points, changeScreenWithFade }) {
   let message;
   let bg;
   let bgMob;
