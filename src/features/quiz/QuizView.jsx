@@ -34,7 +34,7 @@ export default function QuizView({
                   isAlive
                     ? "opacity-100 scale-100 translate-y-0"
                     : "opacity-0 scale-50 -translate-y-2 pointer-events-none"
-                } ${hasLives === 1 ? "animate-pulse" : ""}`}
+                }`} // ${hasLives <= 1 ? "animate-pulse" : ""}
               >
                 <img
                   src={heartFullColored}
