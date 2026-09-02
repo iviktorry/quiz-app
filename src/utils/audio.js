@@ -1,9 +1,9 @@
 import mainThemeSound from "../assets/sounds/main-theme.mp3";
 import victoryThemeSound from "../assets/sounds/victory-theme.mp3";
 import defeatThemeSound from "../assets/sounds/defeat-theme.mp3";
-import correctAudio from "../../assets/sounds/correct.mp3";
-import wrongAudio from "../../assets/sounds/wrong.mp3";
-import gameOverAudio from "../../assets/sounds/gameOver.mp3";
+import correctAudio from "../assets/sounds/correct.mp3";
+import wrongAudio from "../assets/sounds/wrong.mp3";
+import gameOverAudio from "../assets/sounds/gameOver.mp3";
 
 export const mainTheme = new Audio(mainThemeSound);
 export const victoryTheme = new Audio(victoryThemeSound);
@@ -13,9 +13,15 @@ export const wrongSound = new Audio(wrongAudio);
 export const gameOverSound = new Audio(gameOverAudio);
 
 const allTracks = [mainTheme, victoryTheme, defeatTheme];
+const allSoundEffects = [correctSound, wrongSound, gameOverSound];
+
+allSoundEffects.forEach((sound) => {
+  sound.volume = 0.3;
+});
 
 allTracks.forEach((track) => {
   track.loop = true;
+  track.volume = 0.2;
 });
 
 export function playMusic(track) {
