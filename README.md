@@ -11,8 +11,6 @@ A polished, fully interactive React-based trivia game dedicated to the _Demon Sl
 
 ---
 
-## 🛠 My Process
-
 ## 🛠 Tech Stack
 
 - **React** — Component-based architecture and state management
