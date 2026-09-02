@@ -2,6 +2,7 @@ import { useState } from "react";
 import bgImg from "../../assets/images/start-bg.jpg";
 import StartView from "./StartView";
 import StartButton from "./components/StartButton";
+import { mainTheme, playMusic } from "../../utils/audio";
 
 export default function StartScreen({
   changeScreenWithFade,
@@ -13,6 +14,8 @@ export default function StartScreen({
   const [readyState, setReadyState] = useState("ready");
 
   function changeStateWithFade(newState) {
+    playMusic(mainTheme);
+
     setIsVisible(false);
     setPoints(0);
     setHasLives(3);
