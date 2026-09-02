@@ -25,7 +25,9 @@ allTracks.forEach((track) => {
 });
 
 export function playMusic(track) {
-  stopAllMusic();
+  if (!track.pause) return;
+
+  stopAllMusicExcept(track);
   track.play().catch(() => {});
 }
 
@@ -39,5 +41,14 @@ export function stopAllMusic() {
   allTracks.forEach((track) => {
     track.pause();
     track.currentTime = 0;
+  });
+}
+
+function stopAllMusicExcept(currentTrack) {
+  allTracks.forEach((track) => {
+    if (track !== currentTrack) {
+      track.pause();
+      track.currentTime = 0;
+    }
   });
 }
