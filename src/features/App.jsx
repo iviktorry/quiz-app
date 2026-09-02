@@ -41,32 +41,42 @@ export default function App() {
     }, 500);
   }
 
-  const screens = {
-    start: (
-      <StartScreen
-        changeScreenWithFade={changeScreenWithFade}
-        setPoints={setPoints}
-        setHasLives={setHasLives}
-      />
-    ),
-    quiz: (
-      <QuizScreen
-        changeScreenWithFade={changeScreenWithFade}
-        setPoints={setPoints}
-        hasLives={hasLives}
-        setHasLives={setHasLives}
-        correctSound={correctSound}
-        wrongSound={wrongSound}
-        gameOverSound={gameOverSound}
-      />
-    ),
-    result: (
-      <ResultScreen
-        changeScreenWithFade={changeScreenWithFade}
-        points={points}
-      />
-    ),
-  };
+  function renderScreen() {
+    switch (screen) {
+      case "start": {
+        return (
+          <StartScreen
+            changeScreenWithFade={changeScreenWithFade}
+            setPoints={setPoints}
+            setHasLives={setHasLives}
+          />
+        );
+      }
+      case "quiz": {
+        return (
+          <QuizScreen
+            changeScreenWithFade={changeScreenWithFade}
+            setPoints={setPoints}
+            hasLives={hasLives}
+            setHasLives={setHasLives}
+            correctSound={correctSound}
+            wrongSound={wrongSound}
+            gameOverSound={gameOverSound}
+          />
+        );
+      }
+      case "result": {
+        return (
+          <ResultScreen
+            changeScreenWithFade={changeScreenWithFade}
+            points={points}
+          />
+        );
+      }
+      default:
+        return null;
+    }
+  }
 
   return (
     <div className="h-dvh min-w-full flex overflow-hidden font-custom text-3xl bg-black">
@@ -74,7 +84,7 @@ export default function App() {
       <div
         className={`w-full transition-all duration-500 ease-in-out ${isVisibleScreen ? "opacity-100" : "opacity-0"}`}
       >
-        {screens[screen]}
+        {renderScreen()}
       </div>
     </div>
   );
