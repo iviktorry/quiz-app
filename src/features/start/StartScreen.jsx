@@ -66,7 +66,7 @@ export default function StartScreen({
         <StartButton
           text="Get back"
           shadow="text-shadow-lime-400"
-          hover="hover:text-shadow-lime-500"
+          hover="hover:text-shadow-lime-400"
           onClick={() => changeStateWithFade("ready")}
         />
       </StartView>
