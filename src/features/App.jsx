@@ -7,6 +7,9 @@ import {
   victoryTheme,
   defeatTheme,
   stopAllMusic,
+  correctSound,
+  wrongSound,
+  gameOverSound,
 } from "../utils/audio";
 
 export default function App() {
@@ -56,6 +59,9 @@ export default function App() {
         setIsVisible={setIsVisible}
         hasLives={hasLives}
         setHasLives={setHasLives}
+        correctSound={correctSound}
+        wrongSound={wrongSound}
+        gameOverSound={gameOverSound}
       />
     ),
     result: (
