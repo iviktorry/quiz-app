@@ -1,6 +1,7 @@
 import StartScreen from "./start/StartScreen";
 import QuizScreen from "./quiz/QuizScreen";
 import ResultScreen from "./result/ResultScreen";
+import SoundToggle from "./components/SoundToggle";
 import { useState } from "react";
 import {
   mainTheme,
@@ -74,6 +75,7 @@ export default function App() {
 
   return (
     <div className="h-dvh min-w-full flex overflow-hidden font-custom text-3xl bg-black">
+      <SoundToggle screen={screen} />
       <div
         className={`w-full transition-all duration-500 ease-in-out ${isVisibleScreen ? "opacity-100" : "opacity-0"}`}
       >
