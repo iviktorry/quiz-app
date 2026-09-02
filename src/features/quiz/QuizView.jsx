@@ -34,7 +34,7 @@ export default function QuizView({
                   isAlive
                     ? "opacity-100 scale-100 translate-y-0"
                     : "opacity-0 scale-50 -translate-y-2 pointer-events-none"
-                }`} // ${hasLives <= 1 ? "animate-pulse" : ""}
+                }`}
               >
                 <img
                   src={heartFullColored}
@@ -57,7 +57,7 @@ export default function QuizView({
         </div>
 
         <div
-          className={`flex flex-col gap-2 transition-all duration-500 ease ${isVisible ? "opacity-100" : "opacity-0"}`}
+          className={`flex flex-col gap-2 transition-all duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <h2 className="">{questionsArray[questionId - 1].question}</h2>
 
@@ -77,7 +77,12 @@ export default function QuizView({
                   key={index}
                   className={`flex items-center gap-2 rounded-sm transition-all duration-500 hover:text-neutral-50 ${style}`}
                 >
-                  <input type="radio" name="answer" value={index} />
+                  <input
+                    type="radio"
+                    name="answer"
+                    value={index}
+                    disabled={isAnswered}
+                  />
                   {item.answer} {item.correct ? "*" : ""}
                 </label>
               );
